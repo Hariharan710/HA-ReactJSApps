@@ -1,28 +1,12 @@
-import React from "react";
+import React, { CSSProperties } from "react";
+import { NavLink } from "react-router-dom";
 
-export type MenuItems = "home" | "patients" | "profile";
+const activeStyleProps: CSSProperties = {
+  fontWeight: "bold",
+  color: "red"
+};
 
-export interface IMainMenuProps {
-  selectedItem: MenuItems;
-  onSelectedItemChange: (newSelection: MenuItems) => void;
-}
-
-function getStyle(menuOptions: MenuItems, highlightIf: string): any {
-  const basicProps = {
-    float: "left",
-    width: "100px",
-    listStyle: "none"
-  };
-  return menuOptions === highlightIf
-    ? {
-        color: "red",
-        textTransform: "uppercase" as "uppercase",
-        ...basicProps
-      }
-    : { color: "green", ...basicProps };
-}
-
-const MainMenu = (props: IMainMenuProps) => (
+const MainMenu = () => (
   <ul
     style={{
       marginTop: "2em",
@@ -31,9 +15,23 @@ const MainMenu = (props: IMainMenuProps) => (
       borderColor: "white"
     }}
   >
-    <li onClick={() => props.onSelectedItemChange("home")} style={getStyle(props.selectedItem, "home")}>Home</li>
-    <li onClick={() => props.onSelectedItemChange("patients")} style={getStyle(props.selectedItem, "patients")}>Patients</li>
-    <li onClick={() => props.onSelectedItemChange("profile")} style={getStyle(props.selectedItem, "profile")}>Profile</li>
+    <li>
+      <NavLink to="/" activeStyle={activeStyleProps}>
+        Home
+      </NavLink>
+    </li>
+
+    <li>
+      <NavLink to="/patients" activeStyle={activeStyleProps}>
+        Patients
+      </NavLink>
+    </li>
+
+    <li>
+      <NavLink to="/profile" activeStyle={activeStyleProps}>
+        Profile
+      </NavLink>
+    </li>
   </ul>
 );
 
