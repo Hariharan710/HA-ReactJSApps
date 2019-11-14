@@ -20,7 +20,7 @@ const PatientList = () => {
   }
 
   return (
-    <div>
+    <div style={{ width: "800px", margin: "auto" }}>
       <h1>This is a list of patients.</h1>
       <ul>
         {typeof patients !== "undefined" ? (

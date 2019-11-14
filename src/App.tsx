@@ -24,9 +24,9 @@ const App = () => {
           >
             Learn React at HealthAsyst
           </a>
-          <MainMenu />
         </header>
       </div>
+      <MainMenu />
       <div>
         <Switch>
           <Route exact path="/">
@@ -40,6 +40,7 @@ const App = () => {
           </Route>
         </Switch>
       </div>
+      <footer style={{ paddingTop: "4em", paddingBottom: "10em", textAlign: "center" }}>This is a footer</footer>
     </Router>
   );
 };
